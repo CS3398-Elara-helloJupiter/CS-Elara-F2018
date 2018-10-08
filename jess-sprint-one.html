@@ -99,9 +99,10 @@
     </style>
     <meta charset="utf-8">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script type="text/javascript">
-        function toggleDisplays(num) {
+
+        function toggleDisplays(num, num2) {
+
             // assigns a button selection to variable
             x = document.getElementById("work_display");
             y = document.getElementById("school_display");
@@ -127,9 +128,40 @@
                 y.style.display = "none";
                 f.style.display = "none";
             }
+
             else if (num == 4) { //Shows table when any button on second level is selected
                 f.style.display = "block";
-            }
+                $("#myTable td").remove(); //Jquery call that removes data previously in table
+
+                //Task objects to be looped through
+                var tsk_1 = {task:"Clean", comments:"Clean house", due:"Sunday 10-7"};
+                var tsk_2 = {task:"Wash", comments:"Wash Car", due:"Sunday 10-7"};
+                var tsk_3 = {task:"Bath", comments:"Take shower", due:"Sunday 10-7"};
+                var tsk_4 = {task:"anotha1", comments:"Clean house", due:"Sunday 10-7"};
+                var tsk_5 = {task:"anotha2", comments:"Wash Car", due:"Sunday 10-8"};
+                var tsk_6 = {task:"anotha3", comments:"Take shower", due:"Sunday 10-8"};
+                var tsk_7 = {task:"Tasking", comments:"Clean house", due:"Sunday 10-8"};
+                var tsk_8 = {task:"Tasking again", comments:"Wash Car", due:"Sunday 10-7"};
+                var tsk_9 = {task:"Task ya", comments:"Take shower", due:"Sunday 10-7"};
+                var tsk_10 = {task:"Task ya", comments:"Take shower", due:"Sunday 10-7"};
+
+                if (num2 == 1) {
+                  row = [tsk_1, tsk_2, tsk_3];
+                }
+                else if (num2 == 2){
+                  row = [tsk_4, tsk_5, tsk_6];
+                }
+                else if (num2 == 3){
+                  row = [tsk_7, tsk_8, tsk_9, tsk_10];
+                }
+                for (x = 0; x < row.length; x++) {
+                    $('#myTable').append( //Jquery call to update table
+                        '<tr><td>' + row[x].task +
+                        '</td><td>' + row[x].comments +
+                        '</td><td>' + row[x].due +
+                        '</td>');
+                }
+              }
           }
 
         function InitialzePageAfterLoad() {
@@ -138,11 +170,13 @@
           y = document.getElementById("school_display");
           z = document.getElementById("misc_display");
           f = document.getElementById("table_display");
+            
           x.style.display = "none";
           y.style.display = "none"
           z.style.display = "none";
           f.style.display = "none";
         }
+
     </script>
 </head>
 <body onload="InitialzePageAfterLoad()">
@@ -162,42 +196,41 @@
     <div class="second_level1" id="school_display">
         <h1>School</h1>
         <br><br><br>
-        <button class="button button2"  onclick="toggleDisplays(4)">Math</button>
+        <button class="button button2"  onclick="toggleDisplays(4, 1)">Math</button>
         <br><br><br><br>
-        <button class="button button2"  onclick="toggleDisplays(4)">English</button>
+        <button class="button button2"  onclick="toggleDisplays(4, 2)">English</button>
         <br><br><br><br>
-        <button class="button button2"  onclick="toggleDisplays(4)">Computer Science</button>
+        <button class="button button2"  onclick="toggleDisplays(4, 3)">Computer Science</button>
     </div>
     <div class="second_level2" id="work_display">
         <h1>Work</h1>
         <br><br><br>
-        <button class="button button2" onclick="toggleDisplays(4)">TPS Reports</button>
+        <button class="button button2" onclick="toggleDisplays(4, 1)">TPS Reports</button>
         <br><br><br><br>
-        <button class="button button2" onclick="toggleDisplays(4)">Meetings</button>
+        <button class="button button2" onclick="toggleDisplays(4, 2)">Meetings</button>
         <br><br><br><br>
-        <button class="button button2" onclick="toggleDisplays(4)">Documentation</button>
+        <button class="button button2" onclick="toggleDisplays(4, 3)">Documentation</button>
     </div>
     <div class="second_level3" id="misc_display">
         <h1>Miscellaneous</h1>
         <br><br><br>
-        <button class="button button2" onclick="toggleDisplays(4)">Family</button>
+        <button class="button button2" onclick="toggleDisplays(4, 1)">Family</button>
         <br><br><br><br>
-        <button class="button button2" onclick="toggleDisplays(4)">Chores</button>
+        <button class="button button2" onclick="toggleDisplays(4, 2)">Chores</button>
         <br><br><br><br>
-        <button class="button button2" onclick="toggleDisplays(4)">Fun</button>
+        <button class="button button2" onclick="toggleDisplays(4, 3)">Fun</button>
     </div>
     <div class="third_level" id="table_display">
       <h1>Task Grid</h1>
       <br><br><br><br><br>
-      <table>
-        <tr>
-          <th>TaskName</th><th>Details</th><th>Comments</th></tr><tr>
-          <td>Task1</td><td>Details</td><td>Comments</td></tr><tr>
-          <td>Task2</td><td>Details</td><td>Comments</td></tr><tr>
-          <td>Task3</td><td>Details</td><td>Comments</td></tr><tr>
-          <td>Task4</td><td>Details</td><td>Comments</td></tr><tr>
-          <td>Task5</td><td>Details</td><td>Comments</td></tr><tr>
-          <td>Task6</td><td>Details</td><td>Comments</td></tr>
+      <table style="width:100%" id="myTable">
+                 <th>Task</th>
+                 <th>Comments</th>
+                 <th>Due</th>
+                 <tbody>
+                  <!--looping through javascript objects here-->
+                 </tbody>
+             </table>
       </table>
     </div>
 </body>
