@@ -4,7 +4,7 @@ Team members contributed individual html files for practice, research and simple
 
 Mary's artifact was DemooWebApp.html which she implemented, the dynamic table in HTML and accommodated the web application to be resized with the user's window.
 
-Jessica's artifact was jess-spprint-one.html which implemented the suggested design that will be able to work with the backend of the web, in order to store the user's input.
+Jessica's artifact was jess-sprint-one.html which implemented the suggested design that will be able to work with the backend of the web, in order to store the user's input.
 
 Sam’s artifact was Styles.css which includes the design elements of the website that improve the appearance and functionality.
 
