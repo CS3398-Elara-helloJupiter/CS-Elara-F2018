@@ -1,9 +1,8 @@
 # CS-Elara-F2018
 
-All individual html files can be pulled, saved locally, and readily opened in any web browser 
+All individual html files can be pulled, saved locally, and readily opened in any web browser.
 
-
-styles.css and index.html uploaded by Samantha. Note: use both files.
+The application is split between the index.html and style.css files
 
 
 The current TAB application can run as a static web page. The page is a demo of the basic structure and flow of the final application. The current web page can navigate between different subject tasks which open up to sub tabs that contain different categories of those subjects. The window is resized according to the selection the user makes for each subject, category and subcategory. Each subcategory contains a single unique table that stores a list of relevant tasks, descriptions and due dates.
