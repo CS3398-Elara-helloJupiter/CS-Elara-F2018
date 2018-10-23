@@ -184,48 +184,48 @@
     </script>
 </head>
 <body onload="InitialzePageAfterLoad()">
-    <div class="header">
-        <h3 style="font-size:50px;&amp;rlm;">TAB Application </h3>
-    </div>
-    <div class="first_level">
+    <button class="header">
+        <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
+    </button>
+    <button class="first_level">
         <br>
-        <h1>Subjects</h1>
+        <h2>Subjects</h2>
         <br><br><br>
         <button class="button button2" onclick="toggleDisplays(1)">School</button>
         <br><br><br><br>
         <button class="button button2" onclick="toggleDisplays(2)">Work</button>
         <br><br><br><br>
         <button class="button button2" onclick="toggleDisplays(3)">Miscellaneous</button>
-    </div>
-    <div class="second_level1" id="school_display">
-        <h1>School</h1>
+    </button>
+    <button class="second_level1" id="school_display">
+        <h3>School</h3>
         <br><br><br>
         <button class="button button2"  onclick="toggleDisplays(4, 1)">Math</button>
         <br><br><br><br>
         <button class="button button2"  onclick="toggleDisplays(4, 2)">English</button>
         <br><br><br><br>
         <button class="button button2"  onclick="toggleDisplays(4,3)">Computer Science</button>
-    </div>
-    <div class="second_level2" id="work_display">
-        <h1>Work</h1>
+    </button>
+    <button class="second_level2" id="work_display">
+        <h4>Work</h4>
         <br><br><br>
         <button class="button button2" onclick="toggleDisplays(4,1)">TPS Reports</button>
         <br><br><br><br>
         <button class="button button2" onclick="toggleDisplays(4,2)">Meetings</button>
         <br><br><br><br>
         <button class="button button2" onclick="toggleDisplays(4,3)">Documentation</button>
-    </div>
-    <div class="second_level3" id="misc_display">
-        <h1>Miscellaneous</h1>
+    </button>
+    <button class="second_level3" id="misc_display">
+        <h5>Miscellaneous</h5>
         <br><br><br>
         <button class="button button2" onclick="toggleDisplays(4,1)">Family</button>
         <br><br><br><br>
         <button class="button button2" onclick="toggleDisplays(4,2)">Chores</button>
         <br><br><br><br>
         <button class="button button2" onclick="toggleDisplays(4,3)">Fun</button>
-    </div>
-    <div class="third_level" id="table_display">
-     <h1>Task Grid</h1>
+    </button>
+    <button class="third_level" id="table_display">
+     <h6>Task Grid</h6>
       <br><br><br><br><br>
       <table style="width:100%" id="myTable">
                  <th>Task</th>
@@ -236,6 +236,6 @@
                  </tbody>
              </table>
       </table>
-    </div>
+    </button>
 </body>
 </html>
