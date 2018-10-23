@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+<title>TAB </title>
+    <style>
+		div {
+    resize: both;
+    overflow: auto;
+	}
+
+        * {
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center
+        }
+        a.header {
+            padding: 2px;
+            height: 3%;
+            border: 5px solid #644a55;
+        }
+        .first_level {
+            float: left;
+            padding: 15px;
+            width: 20%;
+            height: 1042px;
+            border: 5px solid #644a55;
+
+            /*background-color: #add8e6;*/
+        }
+        .second_level1 {
+            width: 25%;
+            float: left;
+            padding: 30px;
+            height: 1042px;
+            border: 5px solid #644a55;
+            /*background-color: #98fb98;*/
+        }
+        .second_level2 {
+            width: 25%;
+            float: left;
+            padding: 30px;
+            height: 1042px;
+            border: 5px solid #644a55;
+            /*background-color: #ffa07a;*/
+        }
+        .second_level3 {
+            width: 25%;
+            float: left;
+            padding: 30px;
+            height: 1042px;
+            border: 5px solid #644a55;
+            /*background-color: #ffb6c1;*/
+        }
+        .third_level {
+            width: 55%;
+            float: left;
+            padding: 30px;
+            height: 1042px;
+            border: 5px solid #644a55;
+            /*background-color: #ffb6c1;*/
+        }
+        .button {
+            background-color: #644a55;
+            border: none;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 40px 2px;
+            cursor: pointer;
+            width: 145px;
+            height: 100px;
+        }
+        .button2:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .drop:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .footer {
+            width: 100%;
+            height: 40px;
+            border: 5px solid #644a55;
+        }
+        .axis path, .tick line {
+            fill: none;
+            stroke: #333;
+        }
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+    <meta charset="utf-8">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript">
+        function toggleDisplays(num) {
+            // assigns a button selection to variable
+            x = document.getElementById("work_display");
+            y = document.getElementById("school_display");
+            z = document.getElementById("misc_display");
+            f = document.getElementById("table_display");
+            // Toggles second level based on button clicked by user
+            if (num == 1) {
+                y.style.display = "block";
+                x.style.display = "none"
+                z.style.display = "none";
+                f.style.display = "none";
+              }
+            else if (num == 2) {
+                x.style.display = "block";
+                y.style.display = "none";
+                z.style.display = "none";
+                f.style.display = "none";
+              }
+            else if (num == 3) {
+                z.style.display = "block";
+                x.style.display = "none";
+                y.style.display = "none";
+                f.style.display = "none";
+            }
+            else if (num == 4) { //Shows table when any button on second level is selected
+                f.style.display = "block";
+				$("myTable td").remove();
+				
+			var tsk_1 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_2 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_3 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_4 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_5 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_6 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_7 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_8 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_9 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			var tsk_10 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+			
+			
+			if(num2 ==1)
+		{
+			row= [tsk_1,tsk_2,tsk_3];
+		}
+			else if (num2 == 2){
+                  row = [tsk_4, tsk_5, tsk_6];
+                }
+                else if (num2 == 3){
+                  row = [tsk_7, tsk_8, tsk_9, tsk_10];
+                }
+                for (x = 0; x < row.length; x++) {
+                    $('#myTable').append( //Jquery call to update table
+                        '<tr><td>' + row[x].task +
+                        '</td><td>' + row[x].comments +
+                        '</td><td>' + row[x].due +
+                        '</td>');
+                }
+				
+				
+            }
+          }
+        function InitialzePageAfterLoad() {
+          //Initializes a blank page
+          x = document.getElementById("work_display");
+          y = document.getElementById("school_display");
+          z = document.getElementById("misc_display");
+          f = document.getElementById("table_display");
+          x.style.display = "none";
+          y.style.display = "none"
+          z.style.display = "none";
+          f.style.display = "none";
+        }
+    </script>
+</head>
+<body onload="InitialzePageAfterLoad()">
+    <div class="header">
+        <h3 style="font-size:50px;&amp;rlm;">TAB Application </h3>
+    </div>
+    <div class="first_level">
+        <br>
+        <h1>Subjects</h1>
+        <br><br><br>
+        <button class="button button2" onclick="toggleDisplays(1)">School</button>
+        <br><br><br><br>
+        <button class="button button2" onclick="toggleDisplays(2)">Work</button>
+        <br><br><br><br>
+        <button class="button button2" onclick="toggleDisplays(3)">Miscellaneous</button>
+    </div>
+    <div class="second_level1" id="school_display">
+        <h1>School</h1>
+        <br><br><br>
+        <button class="button button2"  onclick="toggleDisplays(4, 1)">Math</button>
+        <br><br><br><br>
+        <button class="button button2"  onclick="toggleDisplays(4, 2)">English</button>
+        <br><br><br><br>
+        <button class="button button2"  onclick="toggleDisplays(4,3)">Computer Science</button>
+    </div>
+    <div class="second_level2" id="work_display">
+        <h1>Work</h1>
+        <br><br><br>
+        <button class="button button2" onclick="toggleDisplays(4,1)">TPS Reports</button>
+        <br><br><br><br>
+        <button class="button button2" onclick="toggleDisplays(4,2)">Meetings</button>
+        <br><br><br><br>
+        <button class="button button2" onclick="toggleDisplays(4,3)">Documentation</button>
+    </div>
+    <div class="second_level3" id="misc_display">
+        <h1>Miscellaneous</h1>
+        <br><br><br>
+        <button class="button button2" onclick="toggleDisplays(4,1)">Family</button>
+        <br><br><br><br>
+        <button class="button button2" onclick="toggleDisplays(4,2)">Chores</button>
+        <br><br><br><br>
+        <button class="button button2" onclick="toggleDisplays(4,3)">Fun</button>
+    </div>
+    <div class="third_level" id="table_display">
+     <h1>Task Grid</h1>
+      <br><br><br><br><br>
+      <table style="width:100%" id="myTable">
+                 <th>Task</th>
+                 <th>Comments</th>
+                 <th>Due</th>
+                 <tbody>
+                  <!--looping through javascript objects here-->
+                 </tbody>
+             </table>
+      </table>
+    </div>
+</body>
+</html>
