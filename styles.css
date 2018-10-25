@@ -12,8 +12,11 @@ body {
 h3{
 	font-family: Arial;
 	text-align: center;
-	border: 2px solid #73AD21;
- 	border-radius: 25px;
+	border: 4px solid #644a55;
+ 	border-radius: 50px;
+ 	font-size:50px;
+ 	padding:20px;
+
 }
 
 tr:hover {background-color: #f5f5f5;}
@@ -25,8 +28,8 @@ button{
     height: 150px;
 }
 
-    
-    div {
+ 
+div {
     resize: both;
     overflow: auto;
     }
@@ -48,6 +51,7 @@ button{
             width: 20%;
             height: 1042px;
             border: 5px solid #644a55;
+            text-align: center;
 
             /*background-color: #add8e6;*/
         }
@@ -57,6 +61,7 @@ button{
             padding: 30px;
             height: 1042px;
             border: 5px solid #644a55;
+            text-align: center;
             /*background-color: #98fb98;*/
         }
         .second_level2 {
@@ -65,6 +70,7 @@ button{
             padding: 30px;
             height: 1042px;
             border: 5px solid #644a55;
+            text-align: center;
             /*background-color: #ffa07a;*/
         }
         .second_level3 {
@@ -73,6 +79,7 @@ button{
             padding: 30px;
             height: 1042px;
             border: 5px solid #644a55;
+            text-align: center;
             /*background-color: #ffb6c1;*/
         }
         .third_level {
@@ -81,6 +88,7 @@ button{
             padding: 30px;
             height: 1042px;
             border: 5px solid #644a55;
+            text-align: center;
             /*background-color: #ffb6c1;*/
         }
         .button {
@@ -96,6 +104,7 @@ button{
             cursor: pointer;
             width: 145px;
             height: 100px;
+            
         }
         .button2:hover {
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
