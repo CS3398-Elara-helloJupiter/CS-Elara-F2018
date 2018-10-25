@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+<title>3_Column_Demo</title>
+<style>
+
+ul, li{
+margin:0;
+padding:0 0 0 15px;    
+}
+
+.column{
+    float: left;
+    margin: 0 30px 0 0;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 5px;
+  width: 10%;
+  background: #d9d9d9;
+  color: #555;
+  float: right;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+
+</style>
+</head>
+
+<body>
+/* Header for Input Box and Add Button */
+<div class="column">
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">First Column</h2>
+  <input type="text" id="myInput1" placeholder="Title...">
+  <span onclick="newElement1()" class="addBtn">Add1</span>
+</div>
+    <ul id = "topLevel">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+</div>
+
+/* Header for Input Box and Add Button */
+<div class="column">
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">Second Column</h2>
+  <input type="text" id="myInput2" placeholder="Title...">
+  <span onclick="newElement2()" class="addBtn">Add2</span>
+</div>
+    <ul id = "secondLevel">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+</div>
+
+<div class="column">
+  <h2>Bordered Table</h2>
+  <p>The .table-bordered class adds borders to a table:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<script>
+// Create a new list item when clicking on the "Add" button
+function newElement1() 
+{
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput1").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') 
+  {
+    alert("You must write something!");
+  } 
+  else 
+  {
+    document.getElementById("topLevel").appendChild(li);
+  }
+  document.getElementById("myInput1").value = "";
+
+  li.onclick = subjectLink()
+  {
+    alert("You clicked on" + this.inputValue)
+  }
+}
+
+function newElement2() 
+{
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput2").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') 
+  {
+    alert("You must write something!");
+  } 
+  else 
+  {
+    document.getElementById("secondLevel").appendChild(li);
+  }
+  document.getElementById("myInput2").value = "";
+}
+/*
+
+//This section adds a close button to the list element
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+*/
+
+</script>
+
+</body>
+</html>
