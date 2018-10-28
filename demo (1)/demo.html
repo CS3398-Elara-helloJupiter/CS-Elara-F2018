@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>TAB</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="InitialzePageAfterLoad()">
+
+    <div class="Welcome">
+      <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
+    </div>
+
+    <div class="first_level">
+      <br>
+      <h2>Subjects</h2>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(1)">School</button>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(2)">Work</button>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(3)">Miscellaneous</button>
+    </div>
+
+    <div class="second_level1" id="school_display">
+      <h3>School</h3>
+      <br>
+      <button class="button button2"  onclick="toggleDisplays(4, 1)" tabindex = 2>Math</button>
+      <br>
+      <button class="button button2"  onclick="toggleDisplays(4, 2)" tabindex = 2>English</button>
+      <br>
+      <button class="button button2"  onclick="toggleDisplays(4,3)" tabindex = 2>Computer Science</button>
+    </div>
+
+    <div class="second_level2" id="work_display">
+      <h3>Work</h3>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(4,1)">TPS Reports</button>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(4,2)">Meetings</button>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(4,3)">Documentation</button>
+    </div>
+
+    <div class="second_level3" id="misc_display">
+      <h3>Miscellaneous</h3>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(4,1)">Family</button>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(4,2)">Chores</button>
+      <br>
+      <button class="button button2" onclick="toggleDisplays(4,3)">Fun</button>
+    </div>
+    
+    <div class="third_level" id="table_display">
+      <h4>Task Grid</h4>
+      <br>
+	  <ul>
+<div class="panel panel-default">
+ 
+<table>
+  <caption>Concerts</caption>
+  <tr>
+    <th>Date</th>
+    <th>Event</th>
+    <th>Venue</th>
+  </tr>
+  <tr>
+    <td contenteditable= 'true'> </td>
+    <<td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+    <tr>
+    <td contenteditable= 'true'> </td>
+    <<td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+    <tr>
+    <td contenteditable= 'true'> </td>
+    <<td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+    <tr>
+    <td contenteditable= 'true'> </td>
+    <<td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+  
+</table>
+
+</div>
+
+	
+
+  </body>
+
+</html>

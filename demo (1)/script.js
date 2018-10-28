@@ -78,3 +78,32 @@ function InitialzePageAfterLoad()
   z.style.display = "none";
   f.style.display = "none";
 }
+
+
+$(document).ready(function($)
+{
+//ajax row data
+	var ajax_data =
+	[
+		{fname:" ", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+	]
+
+
+
+	var random_id = function  () 
+	{
+		var id_num = Math.random().toString(9).substr(2,3);
+		var id_str = Math.random().toString(36).substr(2);
+		
+		return id_num + id_str;
+	}
+
+
+
+
+}); 
