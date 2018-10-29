@@ -69,7 +69,6 @@ ul li:hover {
 </head>
 
 <body>
-/* Header for Input Box and Add Button */
 <div class="column">
 <div id="myDIV" class="header">
   <h2 style="margin:5px">First Column</h2>
@@ -83,10 +82,9 @@ ul li:hover {
     </ul>
 </div>
 
-/* Header for Input Box and Add Button */
 <div class="column">
 <div id="myDIV" class="header">
-  <h2 id = "style="margin:5px"></h2>
+  <h2 id = "subjectHeader" "style="margin:5px"></h2>
   <input type="text" id="myInput2" placeholder="Title...">
   <span onclick="newElement2()" class="addBtn">Add2</span>
 </div>
@@ -169,6 +167,7 @@ function newElement1()
     document.getElementById("topLevel").appendChild(li);
   }
   document.getElementById("myInput1").value = "";
+  
 //This section adds a close button to the list element
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -205,7 +204,7 @@ function newElement2()
 
 
 //This section adds a close button to the list element
-
+/*
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
   span.className = "close";
@@ -217,7 +216,7 @@ function newElement2()
       var div = this.parentElement;
       div.style.display = "none";
     }
-
+*/
 
 </script>
 
