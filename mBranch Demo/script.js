@@ -75,11 +75,72 @@ function newCategory()
   else 
   {
     btn.className += "button button2";
-    document.getElementById("school_display").appendChild(btn);
+    document.getElementById("categoryDisplay").appendChild(btn);
   }
   document.getElementById("categoryInput").value = "";
 }
 
+/*
+function InitialzePageAfterLoad() 
+{
+  //Initializes a blank page
+  x = document.getElementById("work_display");
+  y = document.getElementById("school_display");
+  z = document.getElementById("misc_display");
+  f = document.getElementById("table_display");
+  x.style.display = "none";
+  y.style.display = "none";
+  z.style.display = "none";
+  f.style.display = "none";
+}
+*/
+
+
+$(document).ready(function()
+{
+  //on-click even for subject list
+  $("#subjectUL").on("click", "li", function()
+  {
+    $(this).hide(1000);
+    $(this).show(1000);
+    $("#categoryHeader").text($(this).text());
+    $("#categoryDisplay").removeClass("second_level_hide");
+    $("#categoryDisplay").addClass("second_level");
+
+  });
+
+  $("#categoryDisplay").on("click", "button", function()
+  {
+    $("#subjectHeader").text($(this).text());
+    $("#subjectDisplay").removeClass("third_level_hide");
+    $("#subjectDisplay").addClass("third_level");
+
+  });
+
+//ajax row data
+	var ajax_data =
+	[
+		{fname:" ", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+		{fname:"", lname:"", email:""}, 
+	]
+
+	var random_id = function  () 
+	{
+		var id_num = Math.random().toString(9).substr(2,3);
+		var id_str = Math.random().toString(36).substr(2);
+		
+		return id_num + id_str;
+	}
+
+}); 
+
+
+
+/*
 function toggleDisplays(num) 
 {
   // assigns a button selection to variable
@@ -147,60 +208,4 @@ function toggleDisplays(num)
     }
   }
 }
-
-
-function InitialzePageAfterLoad() 
-{
-  //Initializes a blank page
-  x = document.getElementById("work_display");
-  y = document.getElementById("school_display");
-  z = document.getElementById("misc_display");
-  f = document.getElementById("table_display");
-  x.style.display = "none";
-  y.style.display = "none"
-  z.style.display = "none";
-  f.style.display = "none";
-}
-
-
-$(document).ready(function()
-{
-  
-
-  //on-click even for subject list
-  $("#subjectUL").on("click", "li", function()
-  {
-    $(this).hide(1000);
-    $(this).show(1000);
-    $("#categoryHeader").text($(this).text());
-  });
-
-
-  
-
-
-//ajax row data
-	var ajax_data =
-	[
-		{fname:" ", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-	]
-
-
-
-	var random_id = function  () 
-	{
-		var id_num = Math.random().toString(9).substr(2,3);
-		var id_str = Math.random().toString(36).substr(2);
-		
-		return id_num + id_str;
-	}
-
-
-
-
-}); 
+*/

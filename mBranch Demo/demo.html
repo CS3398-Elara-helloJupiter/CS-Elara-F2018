@@ -14,8 +14,6 @@
     <script src="script.js"></script>
   </head>
 
-  <body onload="InitialzePageAfterLoad()">
-
     <div class="Welcome">
       <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
     </div>
@@ -29,17 +27,18 @@
     </div>
 
 
-    <div class="second_level" id="school_display">
+    <div class="second_level_hide" id="categoryDisplay">
       <h3 id = "categoryHeader" >School</h3>
       <input type = "text" id = "categoryInput" placeholder = "Category...">
       <button onclick = "newCategory()" class = "addButton"> Add </button>
       <br>
-      <button class="button button2"  onclick="toggleDisplays(4, 1)" tabindex = 2>Math</button>
+      <button class="button button2">Math</button>
       <br>
     </div>
     
-    <div class="third_level" id="table_display">
-      <h4>Task Grid</h4>
+
+    <div class="third_level_hide" id="table_display">
+      <h4 id = "tableHeader">Task Grid</h4>
       <br>
 	  <ul>
 <div class="panel panel-default">
