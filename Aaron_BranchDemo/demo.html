@@ -23,7 +23,7 @@
       <input type = "text" id = "subjectInput" placeholder = "Subject...">
       <button onclick = "newSubject()" class = "addButton"> Add </button>
       <ul id = "subjectUL">
-      	<li class = "button button2"> item1 </li>
+      	<li class = "button button2" tabIndex = 1>item1 </li>
     </div>
 
 
@@ -32,19 +32,18 @@
       <input type = "text" id = "categoryInput" placeholder = "Category...">
       <button onclick = "newCategory()" class = "addButton"> Add </button>
       <br>
-      <button class="button button2">Math</button>
+      <button class="button button2" tabIndex = 2>Math</button>
       <br>
     </div>
     
 
-    <div class="third_level_hide" id="table_display">
+    <div class="third_level_hide" id="tableDisplay">
       <h4 id = "tableHeader">Task Grid</h4>
       <br>
-	  <ul>
-<div class="panel panel-default">
- 
-<table>
-  <caption>Concerts</caption>
+
+
+<table >
+  <caption id = "taskHeader">My Task</caption>
   <tr>
     <th>Date</th>
     <th>Event</th>
