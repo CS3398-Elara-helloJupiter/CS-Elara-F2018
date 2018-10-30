@@ -17,12 +17,10 @@ a.header {
     border: 5px solid #644a55;
 }
 
-
-
 .first_level {
     float: left;
     padding: 15px;
-    width: 20%;
+    width: 30%;
     height: 1042px;
     border: 5px solid #644a55;
 
@@ -31,7 +29,7 @@ a.header {
 
 .second_level_hide{
     display:none;
-    width: 25%;
+    width: 30%;
     float: left;
     padding: 30px;
     height: 1042px;
@@ -41,7 +39,7 @@ a.header {
 
 .second_level{
     display: block;
-    width: 25%;
+    width: 30%;
     float: left;
     padding: 30px;
     height: 1042px;
@@ -51,7 +49,7 @@ a.header {
 
 .third_level_hide {
   display: none;
-    width: 55%;
+    width: 40%;
     float: left;
     padding: 30px;
     height: 1042px;
@@ -60,7 +58,7 @@ a.header {
 }
 
 .third_level {
-    width: 55%;
+    width: 40%;
     float: left;
     padding: 30px;
     height: 1042px;
