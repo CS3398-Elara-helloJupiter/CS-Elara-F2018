@@ -21,45 +21,21 @@
     </div>
 
     <div class="first_level">
-      <br>
-      <h2 id = "firstLevel"> Subjects</h2>
+      <h2 id = "subjectHeader"> Subjects</h2>
       <input type = "text" id = "subjectInput" placeholder = "Subject...">
       <button onclick = "newSubject()" class = "addButton"> Add </button>
-      <br>
       <ul id = "subjectUL">
-        <li class="button button2" onclick="toggleDisplays(1)">School</li>
-        <li class="button button2" onclick="toggleDisplays(2)">Work</li>
-        <li class="button button2" onclick="toggleDisplays(3)">Miscellaneous</li>
+      	<li class = "button button2"> item1 </li>
     </div>
 
-    <div class="second_level1" id="school_display">
-      <h3>School</h3>
+
+    <div class="second_level" id="school_display">
+      <h3 id = "categoryHeader" >School</h3>
+      <input type = "text" id = "categoryInput" placeholder = "Category...">
+      <button onclick = "newCategory()" class = "addButton"> Add </button>
       <br>
       <button class="button button2"  onclick="toggleDisplays(4, 1)" tabindex = 2>Math</button>
       <br>
-      <button class="button button2"  onclick="toggleDisplays(4, 2)" tabindex = 2>English</button>
-      <br>
-      <button class="button button2"  onclick="toggleDisplays(4,3)" tabindex = 2>Computer Science</button>
-    </div>
-
-    <div class="second_level2" id="work_display">
-      <h3>Work</h3>
-      <br>
-      <button class="button button2" onclick="toggleDisplays(4,1)">TPS Reports</button>
-      <br>
-      <button class="button button2" onclick="toggleDisplays(4,2)">Meetings</button>
-      <br>
-      <button class="button button2" onclick="toggleDisplays(4,3)">Documentation</button>
-    </div>
-
-    <div class="second_level3" id="misc_display">
-      <h3>Miscellaneous</h3>
-      <br>
-      <button class="button button2" onclick="toggleDisplays(4,1)">Family</button>
-      <br>
-      <button class="button button2" onclick="toggleDisplays(4,2)">Chores</button>
-      <br>
-      <button class="button button2" onclick="toggleDisplays(4,3)">Fun</button>
     </div>
     
     <div class="third_level" id="table_display">

@@ -1,4 +1,64 @@
 
+/*
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) 
+{
+  if (ev.target.tagName === 'LI') 
+  {
+    //document.getElementById("categoryHeader").innerHTML = ev.target.innerHTML;
+    alert("event processed");
+  }
+}, false);
+
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) 
+{
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) 
+{
+  close[i].onclick = function() 
+  {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+*/
+
+
+
+
+//Create new list item when clicking on the "Add" button
+function newSubject() 
+{
+  alert("function called")
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("subjectInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+//Input Validation
+  if (inputValue === '') 
+  {
+    alert("You must write something!");
+  } 
+  else 
+  {
+    li.className += "button button2";
+    document.getElementById("subjectUL").appendChild(li);
+  }
+  document.getElementById("subjectInput").value = "";
+}
+
 function toggleDisplays(num) 
 {
   // assigns a button selection to variable
@@ -67,6 +127,7 @@ function toggleDisplays(num)
   }
 }
 
+
 function InitialzePageAfterLoad() 
 {
   //Initializes a blank page
@@ -81,8 +142,22 @@ function InitialzePageAfterLoad()
 }
 
 
-$(document).ready(function($)
+$(document).ready(function()
 {
+  
+
+  //on-click even for subject list
+  $("#subjectUL").on("click", "li", function()
+  {
+    $(this).hide(1000);
+    $(this).show(1000);
+    $("#categoryHeader").text($(this).text());
+  });
+
+
+  
+
+
 //ajax row data
 	var ajax_data =
 	[
@@ -105,18 +180,6 @@ $(document).ready(function($)
 	}
 
 
-function newSubject(){
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("subjectInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-  alert("You must write something!");
-} else {
-  document.getElementById("subjectUL").appendChild(btn);
-}
-  document.getElementById("subjectInput").value = "";
-}
 
 
 }); 
