@@ -1,6 +1,7 @@
 div {
     resize: both;
     overflow: auto;
+    column-gap: 40px;
 }
 
 * {
@@ -8,7 +9,10 @@ div {
 }
 
 h1 {
-    text-align: center
+    text-align: center;
+}
+h3{
+    text-align: center;
 }
 
 a.header {
@@ -23,6 +27,8 @@ a.header {
     width: 20%;
     height: 1042px;
     border: 5px solid #644a55;
+    text-align: center;
+    border-radius: 25px;
 
     /*background-color: #add8e6;*/
 }
@@ -33,6 +39,8 @@ a.header {
     padding: 30px;
     height: 1042px;
     border: 5px solid #644a55;
+    text-align: center;
+    border-radius: 25px;
     /*background-color: #98fb98;*/
 }
 
@@ -42,6 +50,8 @@ a.header {
     padding: 30px;
     height: 1042px;
     border: 5px solid #644a55;
+    text-align: center;
+    border-radius: 25px;
     /*background-color: #ffa07a;*/
 }
 
@@ -51,6 +61,8 @@ a.header {
     padding: 30px;
     height: 1042px;
     border: 5px solid #644a55;
+    text-align: center;
+    border-radius: 25px;
     /*background-color: #ffb6c1;*/
 }
 
@@ -60,6 +72,8 @@ a.header {
     padding: 30px;
     height: 1042px;
     border: 5px solid #644a55;
+    text-align: center;
+    border-radius: 25px;
     /*background-color: #ffb6c1;*/
 }
 
@@ -76,6 +90,7 @@ a.header {
     cursor: pointer;
     width: 145px;
     height: 100px;
+    border-radius: 25px;
 }
 
 .button2:hover {
