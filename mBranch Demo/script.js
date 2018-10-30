@@ -41,7 +41,7 @@ for (i = 0; i < close.length; i++)
 //Create new list item when clicking on the "Add" button
 function newSubject() 
 {
-  alert("function called")
+  alert("newSubject called");
   var li = document.createElement("li");
   var inputValue = document.getElementById("subjectInput").value;
   var t = document.createTextNode(inputValue);
@@ -57,6 +57,27 @@ function newSubject()
     document.getElementById("subjectUL").appendChild(li);
   }
   document.getElementById("subjectInput").value = "";
+}
+
+//Create new list item when clicking on the "Add" button
+function newCategory() 
+{
+  alert("newCategory called");
+  var btn = document.createElement("button");
+  var inputValue = document.getElementById("categoryInput").value;
+  var t = document.createTextNode(inputValue);
+  btn.appendChild(t);
+//Input Validation
+  if (inputValue === '') 
+  {
+    alert("You must write something!");
+  } 
+  else 
+  {
+    btn.className += "button button2";
+    document.getElementById("school_display").appendChild(btn);
+  }
+  document.getElementById("categoryInput").value = "";
 }
 
 function toggleDisplays(num) 
