@@ -1,11 +1,12 @@
 //Create new list item when clicking on the "Add" button
 function newSubject() 
 {
+
   var li = document.createElement("li");
   var inputValue = document.getElementById("subjectInput").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
-//Input Validation
+  //Input Validation
   if (inputValue === '') 
   {
     alert("You must write something!");
@@ -41,16 +42,19 @@ function newCategory()
 }
 
 
-
 $(document).ready(function()
 {
+
+  //Using query selector to create links for subject list
+ // var links = $('#subjectUL').getElementsByTagName('li');
+
   //on-click event for subject list
   $("#subjectUL").on("click", "li", function()
   {
     $("#categoryHeader").text($(this).text());
     $("#categoryDisplay").removeClass("second_level_hide");
     $("#categoryDisplay").addClass("second_level");
-
+    $(subjectObject.categoryList).
   });
   //hiding element in subject list on double click 
     $("#subjectUL").on("keypress", "li", function(event)
@@ -92,6 +96,46 @@ $(document).ready(function()
 }); 
 
 
+
+
+
+//******************************************************** 
+//Testing Dynamic Query Elements
+//********************************************************
+
+//Create new list item when clicking on the "Add" button
+function newSubjectObject() 
+{
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("subjectInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  //Input Validation
+  if (inputValue === '') 
+  {
+    alert("You must write something!");
+  } 
+  else 
+  {
+    li.tabIndex = 1;
+    li.className += "button button2";
+    document.getElementById("subjectUL").appendChild(li);
+  }
+  document.getElementById("subjectInput").value = "";
+
+  var subjectObject = 
+  {
+    subjectLI: li,
+    subjectText: inputValue;
+    categoryList: [],
+  }
+}
+
+function InitializePageAfterLoad()
+{
+
+}
+
 /*
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) 
@@ -104,17 +148,18 @@ list.addEventListener('click', function(ev)
 }, false);
 
 // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) 
-{
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+function subToCategory{
+  var myNodelist = document.getElementsByTagName("LI");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) 
+  {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+  }
 }
-
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
@@ -126,4 +171,6 @@ for (i = 0; i < close.length; i++)
     div.style.display = "none";
   }
 }
+
+
 */
