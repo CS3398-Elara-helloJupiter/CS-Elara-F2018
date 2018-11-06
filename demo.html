@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body onload="InitializePageAfterLoad()">
+    <head>
+        <title>TAB</title>
+        
+        <meta charset="utf-8">
+            <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+            
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+            
+            <link rel="stylesheet" type="text/css" href="style.css">
+                <script src="script.js"></script>
+                </head>
+    
+    <div class="Welcome">
+        <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
+    </div>
+    
+    <div class="first_level">
+        <h2 id = "subjectHeader"> Subjects</h2>
+        
+        <input type = "text" id = "subjectInput" placeholder = "Subject..." tabindex=1>
+            <button onclick = "newSubjectObject()" class = "addButton" tabindex=1> Add </button>
+            <ul id = "subjectUL">
+                <!-- loop through all Subject buttons here --->
+                
+                </div>
+    
+    <div class="second_level_hide" id="categoryDisplay">
+        <h3 id = "categoryHeader" >School</h3>
+        <input type = "text" id = "categoryInput" placeholder = "Category..." tabIndex=2>
+            <button onclick = "newCategory()" class = "addButton" tabIndex=2> Add </button>
+            <br>
+            <!-- <button class="button button2" tabIndex = 2>Math</button> -->
+            
+            <br>
+            </div>
+    
+    
+    <div class="third_level_hide" id="taskGridDisplay">
+        <h4 id = "taskGridHeader">Task Grid</h4>
+        <br>
+        
+        
+        <table >
+            <caption id = "taskHeader">My Task</caption>
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>Venue</th>
+            </tr>
+            <tr>
+                <td contenteditable= 'true'> </td>    <<td contenteditable= 'true'> </td>
+                <td contenteditable= 'true'> </td>
+            </tr>
+            <tr>
+                <td contenteditable= 'true'> </td>
+                <<td contenteditable= 'true'> </td>
+                <td contenteditable= 'true'> </td>
+            </tr>
+            <tr>
+                <td contenteditable= 'true'> </td>
+                <<td contenteditable= 'true'> </td>
+                <td contenteditable= 'true'> </td>
+            </tr>
+            <tr>
+                <td contenteditable= 'true'> </td>
+                <<td contenteditable= 'true'> </td>
+                <td contenteditable= 'true'> </td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>
+
+
+
