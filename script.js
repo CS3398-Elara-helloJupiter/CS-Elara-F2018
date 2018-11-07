@@ -168,11 +168,7 @@ $(document).ready(function() {
     }
 
   });
-
-                  
-
-                  
-                  
+              
                   
   //Shows task grid based on subject clicked by user
   $("#categoryDisplay").on("click", "li", function()
