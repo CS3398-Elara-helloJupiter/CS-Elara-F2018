@@ -18,25 +18,29 @@
         <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
     </div>
     
-    <div class="first_level">
+    <div class="first_level" id="subjectDisplay">
         <h2 id = "subjectHeader"> Subjects</h2>
         
         <input type = "text" id = "subjectInput" placeholder = "Subject..." tabindex=1>
+    
             <button onclick = "newSubjectObject()" class = "addButton" tabindex=1> Add </button>
+            
+            
+            <div id="subjectButtons">
             <ul id = "subjectUL">
                 <!-- loop through all Subject buttons here --->
-                
                 </div>
+    </div>
     
     <div class="second_level_hide" id="categoryDisplay">
         <h3 id = "categoryHeader" >School</h3>
         <input type = "text" id = "categoryInput" placeholder = "Category..." tabIndex=2>
+
             <button onclick = "newCategory()" class = "addButton" tabIndex=2> Add </button>
             <br>
-            <!-- <button class="button button2" tabIndex = 2>Math</button> -->
-            
+                <!-- <button class="button button2" tabIndex = 2>Math</button> -->
             <br>
-            </div>
+    </div>
     
     
     <div class="third_level_hide" id="taskGridDisplay">
@@ -74,6 +78,7 @@
     </div>
     </body>
 </html>
+
 
 
 
