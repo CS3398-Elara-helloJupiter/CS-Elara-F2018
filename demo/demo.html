@@ -14,97 +14,73 @@
     <script src="script.js"></script>
   </head>
 
-  <body onload="InitialzePageAfterLoad()">
-
-    <div class="header">
-      <h3 style="font-size:50px;&amp;rlm;">TAB Application </h3>
+    <div class="Welcome">
+      <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
+      <h3 style="font-size:18px;&amp;rlm; text-align: center;"> Created by: Mary Gutierrez, Aaron Hunt, Jessica Cruz, Samantha Hollensbe, and Louis Scinta</h3>
+      <p style="font-size:25px;&amp;rlm;">User Guide:
+ To navigate use arrow up, arrow down key.
+When finding the desired button click enter, to go into the category section press the number 3 key.
+To navigate inside the category section, press arrow up or arrow down.
+After finding the desired sub column press enter and then press the number 4 key, to navigate to the table.
+Level 4 contains a table Column from left to right it shows, task name, description and due date. To navigate through the columns, press the tab key.</p>
     </div>
 
     <div class="first_level">
+      <h2 id = "subjectHeader"> Subjects</h2>
+      <input type = "text" id = "subjectInput" placeholder = "Subject..." tabindex=1>
+      <button onclick = "newSubject()" class = "addButton" tabindex=1> Add </button>
+      <ul id = "subjectUL">
+      	<li class = "button button2" tabIndex = 1>item1 </li>
+    </div>
+
+
+    <div class="second_level_hide" id="categoryDisplay">
+      <h3 id = "categoryHeader" >School</h3>
+      <input type = "text" id = "categoryInput" placeholder = "Category..." tabIndex=2>
+      <button onclick = "newCategory()" class = "addButton" tabIndex=2> Add </button>
       <br>
-      <h1>Subjects</h1>
-      <br><br><br>
-      <button class="button button2" onclick="toggleDisplays(1)">School</button>
-      <br><br><br><br>
-      <button class="button button2" onclick="toggleDisplays(2)">Work</button>
-      <br><br><br><br>
-      <button class="button button2" onclick="toggleDisplays(3)">Miscellaneous</button>
-    </div>
-
-    <div class="second_level1" id="school_display">
-      <h1>School</h1>
-      <br><br><br>
-      <button class="button button2"  onclick="toggleDisplays(4, 1)">Math</button>
-      <br><br><br><br>
-      <button class="button button2"  onclick="toggleDisplays(4, 2)">English</button>
-      <br><br><br><br>
-      <button class="button button2"  onclick="toggleDisplays(4,3)">Computer Science</button>
-    </div>
-
-    <div class="second_level2" id="work_display">
-      <h1>Work</h1>
-      <br><br><br>
-      <button class="button button2" onclick="toggleDisplays(4,1)">TPS Reports</button>
-      <br><br><br><br>
-      <button class="button button2" onclick="toggleDisplays(4,2)">Meetings</button>
-      <br><br><br><br>
-      <button class="button button2" onclick="toggleDisplays(4,3)">Documentation</button>
-    </div>
-
-    <div class="second_level3" id="misc_display">
-      <h1>Miscellaneous</h1>
-      <br><br><br>
-      <button class="button button2" onclick="toggleDisplays(4,1)">Family</button>
-      <br><br><br><br>
-      <button class="button button2" onclick="toggleDisplays(4,2)">Chores</button>
-      <br><br><br><br>
-      <button class="button button2" onclick="toggleDisplays(4,3)">Fun</button>
+      <button class="button button2" tabIndex = 2>Math</button>
+      <br>
     </div>
     
-    <div class="third_level" id="table_display">
-      <h1>Task Grid</h1>
-      <br><br><br><br><br>
-      <table style="width:100%" id="myTable">
-		<tr>
-		<th>Task</th>
-         <th>Comments</th> 
-         <th>Due</th>
-		 </tr>
-		<tr>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		</tr>
-		<tr>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		</tr>
-		<tr>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		</tr>
-				<tr>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		</tr>
-		<tr>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		</tr>
-		<tr>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		<td class="auto-style5" contenteditable>&nbsp;</td>
-		</tr>
-         <tbody>
-          <!--looping through javascript objects here-->
-         </tbody>
-      </table>
-    </div>
+
+    <div class="third_level_hide" id="tableDisplay">
+      <h4 id = "tableHeader">Task Grid</h4>
+      <br>
+
+
+<table >
+  <caption id = "taskHeader">My Task</caption>
+  <tr>
+    <th>Date</th>
+    <th>Event</th>
+    <th>Venue</th>
+  </tr>
+  <tr>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+    <tr>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+    <tr>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+    <tr>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+    <td contenteditable= 'true'> </td>
+  </tr>
+  
+</table>
+
+</div>
+	
 
   </body>
 
