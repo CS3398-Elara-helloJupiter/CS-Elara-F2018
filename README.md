@@ -1,6 +1,6 @@
 ﻿# CS-Elara-F2018
 
-Team members contributed individual html files for practice, research and simple implementation design. These can be pulled, saved locally, and readily opened in any web browser.
+###Team members develop and push all artificats to their own branch of the repository. Each branch is linked to the developer by first name.
 
 
 The current TAB application is split between the demo.html, script.js,style.css files.
@@ -19,5 +19,5 @@ The team members jobs will be the following for the next steps
 -	Mary – will incorporate all of the changes from each team mate and make sure the application still works correctly, by testing and change code accordingly. Mary will also be in charge of any new elements or taks needed in the html file.
 
 -	Sam- will implement CSS and JavaScript features in the code and add accessibility keyboard shortcuts for easy navigation for users. 
--	Jessica – will implement the web scripting and MySQL data model of the website to allow users to save tasks. 
+-	Jessica – will implement the web scripting and complete the database connection. Assist in dynamic feeature development using javascript.  
 -	Aaron – will implement dynamic allocation features within the website.
