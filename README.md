@@ -1,6 +1,9 @@
 # CS-Elara-F2018
 ## TAB Application 
 
+### NOTE: All current developmental work can be found on DemoBranch
+
+
 
   
   Task Access For The Blind(TAB) is an accessible task management desktop app for blind or visually impaired users. TAB was created by Samantha Hollensbe, Aaron Hunt, Louis Scinta, Jessica Cruz and Mary Gutierrez, at Texas State University and developed by Lehr Industries and CS3398 inc. TAB was designed to help blind and visually impaired users by providing an intuitive way to get and stay organized. Being visually impaired requires a person to use extensive memory to keep track of every task, every project, every deadline, every one of life’s endless to-dos, all in their head. That can be overwhelming for anybody. But for many people with a visual impairment this is often the difference between succeeding at school or work and anything else. TABS seeks to change that. 
