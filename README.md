@@ -1,6 +1,6 @@
 ﻿# CS-Elara-F2018
 
-###Team members develop and push all artificats to their own branch of the repository. Each branch is linked to the developer by first name.
+### Team members develop and push all artificats to their own branch of the repository. Each branch is linked to the developer by first name.
 
 
 The current TAB application is split between the demo.html, script.js,style.css files.
