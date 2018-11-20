@@ -1,109 +1,104 @@
-function toggleDisplays(num) 
-{
-  // assigns a button selection to variable
-  x = document.getElementById("work_display");
-  y = document.getElementById("school_display");
-  z = document.getElementById("misc_display");
-  f = document.getElementById("table_display");
-  // Toggles second level based on button clicked by user
-  if (num == 1) 
-  {
-    y.style.display = "block";
-    x.style.display = "none"
-    z.style.display = "none";
-    f.style.display = "none";
-  } 
-  else if (num == 2) 
-  {
-    x.style.display = "block";
-    y.style.display = "none";
-    z.style.display = "none";
-    f.style.display = "none";
-  } 
-  else if (num == 3) 
-  {
-    z.style.display = "block";
-    x.style.display = "none";
-    y.style.display = "none";
-    f.style.display = "none";
-  } 
-  else if (num == 4) 
-  { //Shows table when any button on second level is selected
-    f.style.display = "block";
-    $("myTable td").remove();
+<!DOCTYPE html>
+<html lang="en">
 
-    var tsk_1 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_2 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_3 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_4 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_5 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_6 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_7 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_8 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_9 = {task:contenteditable, comments:contenteditable, due:contenteditable};
-    var tsk_10 = {task:contenteditable, comments:contenteditable, due:contenteditable};
+ <head>
+    <title>TAB</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+ </head>
+<body>
+    <div class="Welcome">
+      <h1 style="font-size:50px;&amp;rlm;">TAB Application </h1>
+      <h3 style="font-size:18px;&amp;rlm; text-align: center;"> Created by: Mary Gutierrez, Aaron Hunt, Jessica Cruz, Samantha Hollensbe, and Louis Scinta</h3>
+      <p style="font-size:25px;&amp;rlm;">User Guide:
+		 To navigate use arrow up, arrow down key.
+		When finding the desired button click enter, to go into the category section press the number 3 key.
+		To navigate inside the category section, press arrow up or arrow down.
+		After finding the desired sub column press enter and then press the number 4 key, to navigate to the table.
+		Level 4 contains a table Column from left to right it shows, task name, description and due date. To navigate through the columns, press the tab key.</p>
+    </div>
+
+    <div class="first_level">
+      <h2 id = "subjectHeader"> Subjects</h2>
+      <input type = "text" id = "subjectInput" placeholder = "Subject..." tabindex=1>
+      <button onclick = "newSubject()" class = "addButton" tabindex=1> Add </button>
+      <ul id = "subjectUL">
+    </div>
 
 
-    if(num2 ==1)
-    {
-      row= [tsk_1,tsk_2,tsk_3];
-    }
-    else if (num2 == 2)
-    {
-      row = [tsk_4, tsk_5, tsk_6];
-    }
-    else if (num2 == 3)
-    {
-      row = [tsk_7, tsk_8, tsk_9, tsk_10];
-    }
-    for (x = 0; x < row.length; x++) {
-      $('#myTable').append( //Jquery call to update table
-      '<tr><td>' + row[x].task +
-      '</td><td>' + row[x].comments +
-      '</td><td>' + row[x].due +
-      '</td>');
-    }
-  }
-}
+    <div class="second_level_hide" id="categoryDisplay">
+      <h3 id = "categoryHeader" >School</h3>
+      <input type = "text" id = "categoryInput" placeholder = "Category..." tabIndex=2>
+      <button onclick = "newCategory()" class = "addButton" tabIndex=2> Add </button>
+      <br>
+      <button class="button button2" tabIndex = 2>Math</button>
+      <br>
+    </div>
+    
 
-function InitialzePageAfterLoad() 
-{
-  //Initializes a blank page
-  x = document.getElementById("work_display");
-  y = document.getElementById("school_display");
-  z = document.getElementById("misc_display");
-  f = document.getElementById("table_display");
-  x.style.display = "none";
-  y.style.display = "none"
-  z.style.display = "none";
-  f.style.display = "none";
-}
+    <div class="third_level_hide" id="tableDisplay">
+      <h4 id = "tableHeader">Task Grid</h4>
+	  <div>
+	  <table align='center' cellspacing=9 cellpadding=2 id="data_table" border=1>
+		<tr>
+		<th>Task</th>
+		<th>Description</th>
+		<th>Date</th>
+		</tr>
 
+		<tr id="row1">
+		<td id="name_row1" contenteditable></td>
+		<td id="country_row1" contenteditable></td>
+		<td id="age_row1" contenteditable></td>
+		<td>
+		<input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+		<input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+		<input type="button" value="Delete" class="delete" onclick="delete_row('1')">
+		</td>
+		</tr>
 
-$(document).ready(function($)
-{
-//ajax row data
-	var ajax_data =
-	[
-		{fname:" ", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-	]
+		<tr id="row2">
+		<td id="name_row2" contenteditable></td>
+		<td id="country_row2" contenteditable></td>
+		<td id="age_row2" contenteditable></td>
+		<td>
+		<input type="button" id="edit_button2" value="Edit" class="edit" onclick="edit_row('2')">
+		<input type="button" id="save_button2" value="Save" class="save" onclick="save_row('2')">
+		<input type="button" value="Delete" class="delete" onclick="delete_row('2')">
+		</td>
+		</tr>
 
+		<tr id="row3">
+		<td id="name_row3" contenteditable></td>
+		<td id="country_row3"contenteditable></td>
+		<td id="age_row3"contenteditable></td>
+		<td>
+		<input type="button" id="edit_button3" value="Edit" class="edit" onclick="edit_row('3')">
+		<input type="button" id="save_button3" value="Save" class="save" onclick="save_row('3')">
+		<input type="button" value="Delete" class="delete" onclick="delete_row('3')">
+		</td>
+		</tr>
 
+		<tr>
+		<td><input type="text" id="new_name" contenteditable></td>
+		<td><input type="text" id="new_country"contenteditable></td>
+		<td><input type="text" id="new_age"contenteditable></td>
+		<td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+		</tr>
 
-	var random_id = function  () 
-	{
-		var id_num = Math.random().toString(9).substr(2,3);
-		var id_str = Math.random().toString(36).substr(2);
-		
-		return id_num + id_str;
-	}
+		</table>
+		</div>
+	
+	</div>
+	
 
+  </body>
 
-
-
-}); 
+</html>
