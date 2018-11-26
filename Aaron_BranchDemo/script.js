@@ -1,71 +1,175 @@
-//Create new list item when clicking on the "Add" button
+//*********************************************************************
+// InitializePageAfterLoad() generates an empty subjectList declared
+// as a global variable so subject and category objects can be
+// appended in any function
+//*********************************************************************
+function InitializePageAfterLoad() {
+    subjectList = [];
+    window.subjectList = subjectList;
+}
+
+//*********************************************************************
+// newSubjectObject() dynamically creates a new subject list item and
+// adds a subject object to the subjectList
+//*********************************************************************
 function newSubject() 
 {
-
-  var li = document.createElement("li");
   var inputValue = document.getElementById("subjectInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
   //Input Validation
-  if (inputValue === '') 
-  {
-    alert("You must write something!");
-  } 
+  if (inputValue === '')
+      alert("You must write something!");
   else 
   {
-    li.tabIndex = 1;
-    li.className += "button button2";
-    document.getElementById("subjectUL").appendChild(li);
+      var btn = document.createElement("button");
+      var t = document.createTextNode(inputValue);
+      btn.appendChild(t);
+      btn.tabIndex = 1;
+      btn.className += "button button2";
+      document.getElementById("subjectButtons").appendChild(btn);
+      document.getElementById("subjectInput").value = "";
+  
+      //Instantiation of new subject object
+      var subjectObject = 
+      {
+          subjectButton: btn, //Actual list item element, probably don't need
+          subjectText: inputValue, //Name given to button by user input
+          categoryList: [] //Empty list to hold associated categories
+      }
+      //Appending new subject object to global subjectList list
+      subjectList.push(subjectObject);
   }
-  document.getElementById("subjectInput").value = "";
 }
 
-//Create new list item when clicking on the "Add" button
+//*********************************************************************
+// newCategory() dynamically creates a new category button and
+// a category object that is associated with the subject
+// selected on the first level.
+//*********************************************************************
 function newCategory() 
 {
-  var btn = document.createElement("button");
   var inputValue = document.getElementById("categoryInput").value;
-  var t = document.createTextNode(inputValue);
-  btn.appendChild(t);
-//Input Validation
-  if (inputValue === '') 
-  {
+  //Input Validation
+  if (inputValue === '')
     alert("You must write something!");
-  } 
   else 
   {
-    btn.tabIndex=2;
-    btn.className += "button button2";
-    document.getElementById("categoryDisplay").appendChild(btn);
+    var categoryObject = 
+    {
+      categoryItem: document.createElement("li"), //Actual button element, probably don't need
+      categoryText: inputValue, //Name given to button by user input
+      subject: subjectName //Name of associated subject
+    }
+    var t = document.createTextNode(inputValue)
+    document.getElementById("categoryInput").value = "";
+    subjectName = $("#categoryHeader").text();
+    categoryObject.categoryItem.appendChild(t)
+    categoryObject.categoryItem.tabIndex=2;
+    categoryObject.categoryItem.className += "button button2";
+    document.getElementById("categoryDisplay").appendChild(categoryObject.categoryItem);
+    
+    //Looping through global subject list, matching the category to
+    //the subject, appending category object to the subject's categoryList
+    for (x = 0; x < subjectList.length; x++)
+    {
+      if (subjectList[x].subjectText == subjectName)
+      {
+        subjectList[x].categoryList.push(categoryObject);
+      }
+    }
   }
-  document.getElementById("categoryInput").value = "";
 }
 
-
+//*********************************************************************
+// Function that is always listening...
+// JQuery used for onclick hide and show actions
+// I think this is the function we will need to use for looping
+//*********************************************************************
 $(document).ready(function()
 {
-
-  //Using query selector to create links for subject list
- // var links = $('#subjectUL').getElementsByTagName('li');
-
-  //on-click event for subject list
-  $("#subjectUL").on("click", "li", function()
+  //*********************************************************************
+  // 
+  //*********************************************************************
+  $("#subjectButtons").on("click", "button", function()
   {
+    subjectName = $("#categoryHeader").text();
+    var showIndex;
+    //***************************************
+    // Toggle Show/Hide 
+    //***************************************
+    for (i = 0; i < subjectList.length; i++)
+    {
+      if (subjectList[i].subjectText == subjectName)
+      {
+        for (j = 0; j < subjectList[i].categoryList.length; j++)
+        {
+          subjectList[i].categoryList[j].categoryItem.removeClass("second_level_hide");
+          subjectList[i].categoryList[j].categoryItem.addClass("second_level");
+        }
+      }
+      else (j = 0; j < subjectList[i].categoryList.length; j++)
+      {
+        for (j = 0; j < subjectList[i].categoryList.length; j++)
+        {
+          subjectList[i].categoryList[j].categoryItem.removeClass("second_level_hide");
+          subjectList[i].categoryList[j].categoryItem.addClass("second_level");
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+        $.each(subjectList[i].categoryList, function() 
+        {
+          for (p = 0; p < subjectList[i].categoryList.length; p++)
+          {
+            if (showIndex = p)
+            {
+              //Change css of this particular button
+              //Can maybe do it with index?
+              var item1 = $( "li" )[ index ];
+              shownIndexes.push(index);
+              $(item1).removeClass("button button2");
+              $(item1).addClass("second_level_hide");
+              $( "li" ).each(function( index2 ) 
+              {
+                if (!shownIndexes.includes(index2))
+                {
+                  var item2 = $( "li" )[ index2 ];
+                  $(item2).removeClass("second_level_hide");
+                  $(item2).addClass("button button2");
+                  //hiddenIndexes.push(index2);
+                }
+              });
+            }
+          }
+        });
+      }
+    }
     $("#categoryHeader").text($(this).text());
     $("#categoryDisplay").removeClass("second_level_hide");
     $("#categoryDisplay").addClass("second_level");
-    $(subjectObject.categoryList).
   });
-  //hiding element in subject list on double click 
-    $("#subjectUL").on("keypress", "li", function(event)
-  {
+
+  //*********************************************************************
+  // When user presses 'd' or 'D' while selecting a button element within
+  // subjectButtons, that button will be removed.
+  //*********************************************************************
+  $("#subjectButtons").on("keypress", "button", function(event){
     if (event.keyCode == 68 || event.keyCode == 100)
     {
-      $(this).remove();      
+      $(this).remove();
     }
-
   });
-  //on-click event for category list
+
+  //*********************************************************************
+  // When user clicks a button within the second level, the third level 
+  // will be displayed and header assigned to text of button.
+  //*********************************************************************
   $("#categoryDisplay").on("click", "button", function()
   {
     $("#taskHeader").text($(this).text());
@@ -73,104 +177,7 @@ $(document).ready(function()
     $("#tableDisplay").addClass("third_level");
   });
 
-
-//ajax row data
-	var ajax_data =
-	[
-		{fname:" ", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-		{fname:"", lname:"", email:""}, 
-	]
-
-	var random_id = function  () 
-	{
-		var id_num = Math.random().toString(9).substr(2,3);
-		var id_str = Math.random().toString(36).substr(2);
-		
-		return id_num + id_str;
-	}
-
+//END OF JQUERY 
 }); 
 
 
-
-
-
-//******************************************************** 
-//Testing Dynamic Query Elements
-//********************************************************
-
-//Create new list item when clicking on the "Add" button
-function newSubjectObject() 
-{
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("subjectInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  //Input Validation
-  if (inputValue === '') 
-  {
-    alert("You must write something!");
-  } 
-  else 
-  {
-    li.tabIndex = 1;
-    li.className += "button button2";
-    document.getElementById("subjectUL").appendChild(li);
-  }
-  document.getElementById("subjectInput").value = "";
-
-  var subjectObject = 
-  {
-    subjectLI: li,
-    subjectText: inputValue;
-    categoryList: [],
-  }
-}
-
-function InitializePageAfterLoad()
-{
-
-}
-
-/*
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) 
-{
-  if (ev.target.tagName === 'LI') 
-  {
-    //document.getElementById("categoryHeader").innerHTML = ev.target.innerHTML;
-    alert("event processed");
-  }
-}, false);
-
-// Create a "close" button and append it to each list item
-function subToCategory{
-  var myNodelist = document.getElementsByTagName("LI");
-  var i;
-  for (i = 0; i < myNodelist.length; i++) 
-  {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-  }
-}
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) 
-{
-  close[i].onclick = function() 
-  {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-
-*/
