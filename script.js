@@ -79,7 +79,9 @@ $(document).ready(function()
 	}
 
 	}); 
-	
+
+/* ********************** Mary's Table starts HERE *****************************************
+*/
 function edit_row(no)
 {
  document.getElementById("edit_button"+no).style.display="none";
@@ -131,3 +133,5 @@ function add_row()
  document.getElementById("new_country").value="";
  document.getElementById("new_age").value="";
 }
+/* ********************** Mary's Table ENDS HERE *****************************************
+*/
