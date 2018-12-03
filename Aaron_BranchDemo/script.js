@@ -59,6 +59,42 @@ function newCategory()
       categoryText: inputValue, //Name given to button by user input
       subject: subjectName //Name of associated subject
     }
+    alert("check1");
+
+    //Create Table and Caption
+    var cTable = document.createElement("TABLE");
+    cTable.border = "1";
+    cTable.id = categoryObject.categoryText;
+    var cap = cTable.createCaption();
+    cap.innerHTML = "<b>" + categoryObject.categoryText + "</b>";
+
+    //Add the header row.
+    var row = cTable.insertRow(-1);
+    var header1 = document.createElement("TH");
+    header1.innerHTML = "Date";
+    row.appendChild(header1);
+    var header2 = document.createElement("TH");
+    header2.innerHTML = "Event";
+    row.appendChild(header2);
+    var header3 = document.createElement("TH");
+    header3.innerHTML = "Venue";
+    row.appendChild(header3);
+
+    //Add data rows
+    for (var i = 1; i < 4; i++)
+    {
+      row = cTable.insertRow(i);
+      for (var j = 0; j < 3; j++)
+      {
+        var cell = row.insertCell(j);
+        cell.contentEditable = true;
+      }
+    }
+
+    //Add Table to Document
+    document.getElementById("tableDisplay").append(cTable);
+    alert("Table Created");
+
     var t = document.createTextNode(inputValue);
     document.getElementById("categoryInput").value = "";
     subjectName = $("#categoryHeader").text();
@@ -114,7 +150,7 @@ $(document).ready(function()
 
         for (j = 0; j < subjectList[i].categoryList.length; j++)
         {
-        	alert ("show: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
+        	//alert ("show: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
           $("li").filter(function()
           {
             return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
@@ -126,7 +162,7 @@ $(document).ready(function()
       	//If not Matched, Hide Items
         for (j = 0; j < subjectList[i].categoryList.length; j++)
         {
-          alert ("hide: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
+          //alert ("hide: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
           $("li").filter(function()
             {
               return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
@@ -158,6 +194,54 @@ $(document).ready(function()
     $("#tableHeader").text($(this).text());
     $("#tableDisplay").removeClass("third_level_hide");
     $("#tableDisplay").addClass("third_level");
+
+
+
+    tableName = $(this).text();
+    $("table").filter(function()
+    {
+      return $(this).attr("id") == tableName;
+    }).show();
+
+    $("table").filter(function()
+    {
+      return $(this).attr("id") != tableName;
+    }).hide();
+
+
+
+    // for (i = 0; i < subjectList.length; i++)
+    // {
+    //   if (subjectList[i].subjectText == subjectName)
+    //   {
+    //     alert ("catList Length: " + subjectList[i].categoryList.length);
+
+    //     //If Matched, Show List Items
+    //     showIndex = i;
+
+    //     for (j = 0; j < subjectList[i].categoryList.length; j++)
+    //     {
+    //       //alert ("show: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
+    //       $("table").filter(function()
+    //       {
+    //         return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
+    //       }).show();
+    //     }
+    //   }
+    //   else 
+    //   {
+    //     //If not Matched, Hide Items
+    //     for (j = 0; j < subjectList[i].categoryList.length; j++)
+    //     {
+    //       //alert ("hide: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
+    //       $("table").filter(function()
+    //         {
+    //           return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
+    //         }).hide();
+    //     }
+    //   }
+    // }
+
   });
 
 //END OF JQUERY 
