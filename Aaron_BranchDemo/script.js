@@ -37,6 +37,7 @@ function newSubject()
       }
       //Appending new subject object to global subjectList list
       subjectList.push(subjectObject);
+	  
   }
 }
 
@@ -58,9 +59,10 @@ function newCategory()
       categoryItem: document.createElement("li"), //Actual button element, probably don't need
       categoryText: inputValue, //Name given to button by user input
       subject: subjectName //Name of associated subject
-    }
-    alert("check1");
 
+    }
+   // alert("check1");
+	
     //Create Table and Caption
     var cTable = document.createElement("TABLE");
     cTable.border = "1";
@@ -110,6 +112,7 @@ function newCategory()
       if (subjectList[x].subjectText == subjectName)
       {
         subjectList[x].categoryList.push(categoryObject);
+		
         //alert("subjectList[x].categoryList: " + categoryObject.categoryItem.text());
       }
     }
@@ -137,13 +140,13 @@ $(document).ready(function()
     //***************************************
     // Toggle Show/Hide 
     //***************************************
-    alert (subjectList.length);
+   // alert (subjectList.length);
 
     for (i = 0; i < subjectList.length; i++)
     {
       if (subjectList[i].subjectText == subjectName)
       {
-      	alert ("catList Length: " + subjectList[i].categoryList.length);
+      	//alert ("catList Length: " + subjectList[i].categoryList.length);
 
       	//If Matched, Show List Items
         showIndex = i;
@@ -246,5 +249,8 @@ $(document).ready(function()
 
 //END OF JQUERY 
 }); 
+
+
+
 
 
