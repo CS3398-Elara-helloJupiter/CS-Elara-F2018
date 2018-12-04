@@ -37,7 +37,7 @@ function newSubject()
       }
       //Appending new subject object to global subjectList list
       subjectList.push(subjectObject);
-	  
+      alert("Subject created for: " + subjectObject.subjectText);
   }
 }
 
@@ -61,8 +61,8 @@ function newCategory()
       subject: subjectName //Name of associated subject
 
     }
-   // alert("check1");
-	
+    alert("Category created for: " + categoryObject.categoryText);
+    
     //Create Table and Caption
     var cTable = document.createElement("TABLE");
     cTable.border = "1";
@@ -79,7 +79,7 @@ function newCategory()
     header2.innerHTML = "Event";
     row.appendChild(header2);
     var header3 = document.createElement("TH");
-    header3.innerHTML = "Venue";
+    header3.innerHTML = "Description";
     row.appendChild(header3);
 
     //Add data rows
@@ -149,7 +149,6 @@ function newCategory()
 
     //Add Table to Document
     document.getElementById("tableDisplay").append(cTable);
-    alert("Table Created");
 
     var t = document.createTextNode(inputValue);
     document.getElementById("categoryInput").value = "";
