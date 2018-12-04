@@ -235,7 +235,7 @@ $(document).ready(function()
   $("#subjectButtons").on("keypress", "button", function(event){
     if (event.keyCode == 68 || event.keyCode == 100)
     {
-      if (confirm ('Press Ok to delete subject: ' + $(this).text()))
+      if (confirm ('Press OK to delete subject: ' + $(this).text()))
       {
         subjectName = $("#categoryHeader").text();
         for (i = 0; i < subjectList.length; i++)
@@ -269,6 +269,21 @@ $(document).ready(function()
     }
   });
 
+ $("#categoryDisplay").on("keypress", "li", function(event){
+    if (event.keyCode == 68 || event.keyCode == 100)
+    {
+      if (confirm ('Press OK to delete category: ' + $(this).text()))
+      {
+        tableName = $(this).text();
+        $("table").filter(function()
+        {
+          return $(this).attr("id") == tableName;
+        }).remove();
+        $(this).remove();       
+      }
+    }
+  });
+
   //*********************************************************************
   // When user clicks a button within the second level, the third level 
   // will be displayed and header assigned to text of button.
@@ -294,6 +309,7 @@ $(document).ready(function()
 
   $("#tableDisplay").on("click", "button", function ()
   {
+    if (confirm("Press OK to delete row."))
     $(this).parents("tr").remove();
   });
 
