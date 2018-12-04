@@ -231,7 +231,7 @@ $(document).ready(function()
   // subjectButtons, that button will be removed.
   //*********************************************************************
   $("#subjectButtons").on("keypress", "button", function(event){
-    if (event.keyCode == 65 || event.keyCode == 97)
+    if (event.keyCode == 74 || event.keyCode == 106)
     {
       if (confirm ('Press OK to delete subject: ' + $(this).text()))
       {
@@ -268,7 +268,7 @@ $(document).ready(function()
   });
 
  $("#categoryDisplay").on("keypress", "li", function(event){
-    if (event.keyCode == 65 || event.keyCode == 97)
+    if (event.keyCode == 74 || event.keyCode == 106)
     {
       if (confirm ('Press OK to delete category: ' + $(this).text()))
       {
