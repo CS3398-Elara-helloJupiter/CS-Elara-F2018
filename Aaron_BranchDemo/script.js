@@ -85,13 +85,68 @@ function newCategory()
     //Add data rows
     for (var i = 1; i < 4; i++)
     {
-      row = cTable.insertRow(i);
-      for (var j = 0; j < 3; j++)
-      {
-        var cell = row.insertCell(j);
-        cell.contentEditable = true;
-      }
+
+        var row = cTable.insertRow(i);
+        row.id = cTable.id+","+"row"+i;
+        alert(row.id);
+
+        var cell1 = row.insertCell(0);
+        cell1.contentEditable = true;
+        cell1.id = cTable.id+","+"name_row"+i;
+
+        var cell2 = row.insertCell(1);
+        cell2.contentEditable = true;
+        cell2.id = cTable.id+","+"country_row"+i;
+
+        var cell3 = row.insertCell(2);
+        cell3.contentEditable = true;
+        cell3.id = cTable.id+","+"age_row"+i;
+
+        var inputCell = row.insertCell(3);
+        var deleteButton = document.createElement("button");
+        deleteButton.id = cTable.id+","+"delete_button"+i;
+        deleteButton.className = "delete";
+        var t = document.createTextNode("Delete");
+        deleteButton.appendChild(t);
+        //deleteButton.onclick = function(){delete_row(i)};
+        inputCell.append(deleteButton);
+
+        // var editButton = document.createElement("button");
+        // editButton.id = cTable.id+","+"edit_button"+i;
+        // editButton.className = "edit";
+        // var t = document.createTextNode("Edit");
+        // editButton.appendChild(t);
+        // editButton.onclick = function(){edit_row(i)};
+        // inputCell.append(editButton);
+
+        // var saveButton = document.createElement("button");
+        // saveButton.id = cTable.id+","+"save_button"+i;
+        // saveButton.className = "save";
+        // var t = document.createTextNode("Save");
+        // saveButton.appendChild(t);
+        // saveButton.onclick = function(){save_row(i)};
+        // inputCell.append(saveButton);
+
+
     }
+    row = cTable.insertRow(4);
+    var cell1 = row.insertCell(0);
+    cell1.contentEditable = true;
+    cell1.id = cTable.id+"new_name";
+    var cell2 = row.insertCell(1);
+    cell2.contentEditable = true;
+    cell2.id = cTable.id+"new_country";
+    var cell3 = row.insertCell(2);
+    cell3.contentEditable = true;
+    cell3.id = cTable.id+"new_age";
+
+    var cell4 = row.insertCell(3);
+    var addButton = document.createElement("li");
+    addButton.className = "addButton";
+    var t = document.createTextNode("Add Row");
+    //addButton.onclick = function(){add_row()};
+    addButton.appendChild(t);
+    cell4.append(addButton);
 
     //Add Table to Document
     document.getElementById("tableDisplay").append(cTable);
@@ -210,47 +265,101 @@ $(document).ready(function()
     {
       return $(this).attr("id") != tableName;
     }).hide();
-
-
-
-    // for (i = 0; i < subjectList.length; i++)
-    // {
-    //   if (subjectList[i].subjectText == subjectName)
-    //   {
-    //     alert ("catList Length: " + subjectList[i].categoryList.length);
-
-    //     //If Matched, Show List Items
-    //     showIndex = i;
-
-    //     for (j = 0; j < subjectList[i].categoryList.length; j++)
-    //     {
-    //       //alert ("show: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
-    //       $("table").filter(function()
-    //       {
-    //         return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
-    //       }).show();
-    //     }
-    //   }
-    //   else 
-    //   {
-    //     //If not Matched, Hide Items
-    //     for (j = 0; j < subjectList[i].categoryList.length; j++)
-    //     {
-    //       //alert ("hide: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
-    //       $("table").filter(function()
-    //         {
-    //           return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
-    //         }).hide();
-    //     }
-    //   }
-    // }
-
   });
+
+
+  $("#tableDisplay").on("click", "button", function ()
+  {
+    $(this).parents("tr").remove();
+  });
+
+  $("#tableDisplay").on("keypress", "button", function(event){
+    if (event.keyCode == 65 || event.keyCode == 97)
+    {
+      alert("reached add");
+      //var myRow = $(this).parents("tr");
+      //alert (myRow);
+      //var row = document.createElement('tr');
+      var myTable = $(this).closest('table');
+      myTable.insertRow(-1);
+      //alert (myTable);
+      //row = myTable.append(row);
+    }
+  });
+
+
+  //   $(".delete").on("click", "button", function ()
+  // {
+  //   alert("delete found");
+  //   $(this).parents("tr").remove();
+  // });
+
+
+
 
 //END OF JQUERY 
 }); 
 
 
+/* ********************** Mary's Table starts HERE *****************************************
+*/
+// function edit_row(no)
+// {
+//  document.getElementById("edit_button"+no).style.display="none";
+//  document.getElementById("save_button"+no).style.display="block";
+  
+//  var name=document.getElementById("name_row"+no);
+//  var country=document.getElementById("country_row"+no);
+//  var age=document.getElementById("age_row"+no);
+  
+//  var name_data=name.innerHTML;
+//  var country_data=country.innerHTML;
+//  var age_data=age.innerHTML;
+  
+//  name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>";
+//  country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"'>";
+//  age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"'>";
+// }
+
+// function save_row(no)
+// {
+//  var name_val=document.getElementById("name_text"+no).value;
+//  var country_val=document.getElementById("country_text"+no).value;
+//  var age_val=document.getElementById("age_text"+no).value;
+
+//  document.getElementById("name_row"+no).innerHTML=name_val;
+//  document.getElementById("country_row"+no).innerHTML=country_val;
+//  document.getElementById("age_row"+no).innerHTML=age_val;
+
+//  document.getElementById("edit_button"+no).style.display="block";
+//  document.getElementById("save_button"+no).style.display="none";
+// }
+
+// function delete_row(no)
+// {
+//  document.getElementById("row"+no).remove();
+// }
+
+// function add_row()
+// {
+//  var new_name=document.getElementById("new_name").value;
+//  var new_country=document.getElementById("new_country").value;
+//  var new_age=document.getElementById("new_age").value;
+  
+//  var table=document.getElementById("data_table");
+//  var table_len=(table.rows.length)-1;
+//  var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='name_row"+table_len+"'>"
+//  +new_name+"</td><td id='country_row"+table_len+"'>"+new_country+"</td><td id='age_row"
+//  +table_len+"'>"+new_age+"</td><td><input type='button' id='edit_button"+table_len
+//  +"' value='Edit' class='edit' onclick='edit_row("+table_len+")'> <input type='button' id='save_button"
+//  +table_len+"' value='Save' class='save' onclick='save_row("+table_len+")'> <input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
+
+//  document.getElementById("new_name").value="";
+//  document.getElementById("new_country").value="";
+//  document.getElementById("new_age").value="";
+// }
+/* ********************** Mary's Table ENDS HERE *****************************************
+*/
 
 
 
