@@ -34,7 +34,7 @@ function newSubject()
           subjectButton: btn, //Actual list item element, probably don't need
           subjectText: inputValue, //Name given to button by user input
           categoryList: [] //Empty list to hold associated categories
-      }
+      } 
       //Appending new subject object to global subjectList list
       subjectList.push(subjectObject);
       alert("Subject created for: " + subjectObject.subjectText);
