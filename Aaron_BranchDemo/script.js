@@ -88,7 +88,6 @@ function newCategory()
 
         var row = cTable.insertRow(i);
         row.id = cTable.id+","+"row"+i;
-        alert(row.id);
 
         var cell1 = row.insertCell(0);
         cell1.contentEditable = true;
@@ -111,21 +110,21 @@ function newCategory()
         //deleteButton.onclick = function(){delete_row(i)};
         inputCell.append(deleteButton);
 
-        // var editButton = document.createElement("button");
-        // editButton.id = cTable.id+","+"edit_button"+i;
-        // editButton.className = "edit";
-        // var t = document.createTextNode("Edit");
-        // editButton.appendChild(t);
-        // editButton.onclick = function(){edit_row(i)};
-        // inputCell.append(editButton);
+        var editButton = document.createElement("button");
+        editButton.id = cTable.id+","+"edit_button"+i;
+        editButton.className = "edit";
+        var t = document.createTextNode("Edit");
+        editButton.appendChild(t);
+        //editButton.onclick = function(){edit_row(i)};
+        inputCell.append(editButton);
 
-        // var saveButton = document.createElement("button");
-        // saveButton.id = cTable.id+","+"save_button"+i;
-        // saveButton.className = "save";
-        // var t = document.createTextNode("Save");
-        // saveButton.appendChild(t);
-        // saveButton.onclick = function(){save_row(i)};
-        // inputCell.append(saveButton);
+        var saveButton = document.createElement("button");
+        saveButton.id = cTable.id+","+"save_button"+i;
+        saveButton.className = "save";
+        var t = document.createTextNode("Save");
+        saveButton.appendChild(t);
+        //saveButton.onclick = function(){save_row(i)};
+        inputCell.append(saveButton);
 
 
     }
@@ -141,7 +140,7 @@ function newCategory()
     cell3.id = cTable.id+"new_age";
 
     var cell4 = row.insertCell(3);
-    var addButton = document.createElement("li");
+    var addButton = document.createElement("button");
     addButton.className = "addButton";
     var t = document.createTextNode("Add Row");
     //addButton.onclick = function(){add_row()};
@@ -201,14 +200,11 @@ $(document).ready(function()
     {
       if (subjectList[i].subjectText == subjectName)
       {
-      	//alert ("catList Length: " + subjectList[i].categoryList.length);
-
       	//If Matched, Show List Items
         showIndex = i;
 
         for (j = 0; j < subjectList[i].categoryList.length; j++)
         {
-        	//alert ("show: " + subjectList[i].categoryList[j].categoryItem.innerHTML);
           $("li").filter(function()
           {
             return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
@@ -239,7 +235,37 @@ $(document).ready(function()
   $("#subjectButtons").on("keypress", "button", function(event){
     if (event.keyCode == 68 || event.keyCode == 100)
     {
-      $(this).remove();
+      if (confirm ('Press Ok to delete subject: ' + $(this).text()))
+      {
+        subjectName = $("#categoryHeader").text();
+        for (i = 0; i < subjectList.length; i++)
+        {
+          if (subjectList[i].subjectText == subjectName)
+          {
+            //Removing Tables
+            for (j = 0; j < subjectList[i].categoryList.length; j++)
+            {
+              var tableName = $("li").filter(function()
+              {
+                return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
+              }).text();
+            }
+            $("table").filter(function()
+            {
+              return $(this).attr("id") == tableName;
+            }).remove();
+            //Removing Category items
+            for (j = 0; j < subjectList[i].categoryList.length; j++)
+            {
+              $("li").filter(function()
+              {
+                return $(this).text() == subjectList[i].categoryList[j].categoryItem.innerHTML;
+              }).remove();
+            }
+          }
+        }      
+        $(this).remove();       
+      }
     }
   });
 
@@ -252,8 +278,6 @@ $(document).ready(function()
     $("#tableHeader").text($(this).text());
     $("#tableDisplay").removeClass("third_level_hide");
     $("#tableDisplay").addClass("third_level");
-
-
 
     tableName = $(this).text();
     $("table").filter(function()
@@ -276,12 +300,20 @@ $(document).ready(function()
   $("#tableDisplay").on("keypress", "button", function(event){
     if (event.keyCode == 65 || event.keyCode == 97)
     {
-      alert("reached add");
+      tableName = $("#tableHeader").text();
+      alert (tableName);
+      var myTable = $("table").filter(function()
+      {
+        return $(this).attr("id") == tableName;
+      });
+      alert (myTable);
+      var row = myTable.insertRow(-1);
       //var myRow = $(this).parents("tr");
       //alert (myRow);
       //var row = document.createElement('tr');
-      var myTable = $(this).closest('table');
-      myTable.insertRow(-1);
+      //var myTable = $(this).closest('table');
+      //alert(myTable.Caption);
+      //myTable.insertRow(-1);
       //alert (myTable);
       //row = myTable.append(row);
     }
