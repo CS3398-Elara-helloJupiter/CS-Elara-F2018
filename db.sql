@@ -30,4 +30,4 @@ INSERT INTO 'user' ('FirstName', 'LastName', 'TaskOneName', 'TaskOneDesc',
   ('1', 'Jessica', 'Cruz', 'P.O. Box 321', 'Dance', 'All night long', 'Monday night',
   'Read', 'All the books', 'Tuesday night', 'Play soccer', 'At the appt complex',
   'Saturday morn', 'Attend Party', 'Holloween one', 'Satuday night',
-   'Do Software Engineering', 'Assignment 13', 'Friday night')
+   'Do Software Engineering', 'Assignment 13', 'Friday night' )
