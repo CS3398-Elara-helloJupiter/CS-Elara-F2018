@@ -230,9 +230,8 @@ $(document).ready(function()
   // When user presses 'd' or 'D' while selecting a button element within
   // subjectButtons, that button will be removed.
   //*********************************************************************
-  $("#subjectButtons").on("keypress", "button", function(event){
-    if (event.keyCode == 74 || event.keyCode == 106)
-    {
+  $("#subjectButtons").on("dblclick", "button", function(){
+
       if (confirm ('Press OK to delete subject: ' + $(this).text()))
       {
         subjectName = $("#categoryHeader").text();
@@ -264,12 +263,9 @@ $(document).ready(function()
         }      
         $(this).remove();       
       }
-    }
   });
 
- $("#categoryDisplay").on("keypress", "li", function(event){
-    if (event.keyCode == 74 || event.keyCode == 106)
-    {
+ $("#categoryDisplay").on("dblclick", "li", function(){
       if (confirm ('Press OK to delete category: ' + $(this).text()))
       {
         tableName = $(this).text();
@@ -279,7 +275,6 @@ $(document).ready(function()
         }).remove();
         $(this).remove();       
       }
-    }
   });
 
   //*********************************************************************
