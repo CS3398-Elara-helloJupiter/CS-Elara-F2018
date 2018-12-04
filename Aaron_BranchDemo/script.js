@@ -194,8 +194,6 @@ $(document).ready(function()
     //***************************************
     // Toggle Show/Hide 
     //***************************************
-   // alert (subjectList.length);
-
     for (i = 0; i < subjectList.length; i++)
     {
       if (subjectList[i].subjectText == subjectName)
@@ -233,7 +231,7 @@ $(document).ready(function()
   // subjectButtons, that button will be removed.
   //*********************************************************************
   $("#subjectButtons").on("keypress", "button", function(event){
-    if (event.keyCode == 68 || event.keyCode == 100)
+    if (event.keyCode == 70 || event.keyCode == 102)
     {
       if (confirm ('Press OK to delete subject: ' + $(this).text()))
       {
@@ -270,7 +268,7 @@ $(document).ready(function()
   });
 
  $("#categoryDisplay").on("keypress", "li", function(event){
-    if (event.keyCode == 68 || event.keyCode == 100)
+    if (event.keyCode == 70 || event.keyCode == 102)
     {
       if (confirm ('Press OK to delete category: ' + $(this).text()))
       {
