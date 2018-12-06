@@ -1,23 +1,2 @@
 ﻿# CS-Elara-F2018
-
-Team members contributed individual html files for practice, research and simple implementation design. These can be pulled, saved locally, and readily opened in any web browser.
-
-Mary's artifact was DemooWebApp.html which she implemented, the dynamic table in HTML and accommodated the web application to be resized with the user's window.
-
-Jessica's artifact was jess-sprint-one.html which implemented the suggested design that will be able to work with the backend of the web, in order to store the user's input.
-
-Sam’s artifact was Styles.css which includes the design elements of the website that improve the appearance and functionality.
-
-Aaron’s artifact was ButtonGroupTable_Example.html was to try to implement buttons in the related languages in order to build up to be able to implement “ on click” buttons.
-
-
-The current TAB application is split between the index.html and style.css files.
-
-All team members contributed to the index.html and style.css files by incorporating the best features present in indiviudal html files.
-
-The current TAB application can run as a static web page. The page is a demo of the basic structure and flow of the final application. The current web page can navigate between different subject tasks which open up to sub tabs that contain different categories of those subjects. The window is resized according to the selection the user makes for each subject, category and subcategory. Each subcategory contains a single unique table that stores a list of relevant tasks, descriptions and due dates.
-The team members jobs will be the following for the next steps
--	Mary – will implement HTML features within the code that will allow the website to run smoothly with accessibility guidelines.
--	Sam- will implement CSS and JavaScript features in the code and add accessibility keyboard shortcuts for easy navigation for users. 
--	Jessica – will implement the web scripting and MySQL data model of the website to allow users to save tasks. 
--	Aaron – will implement dynamic allocation features within the website.
+Mary - was in charged of the demo.html file / Part of Script.js file located in Aaron's Branch(final updates) Mary's Branch. Mary incorporated the table using HTML and Javascript, the table allows the user to input a date, description and location of the task. In addition the JS file contains buttons that are linked to the table which allows the user to save,edit and delete the row. Such initial implementations can be found in Mary's branch. In the HTML file i pushed the implementation of the research i did about adding and removing rows on the table, such push includes the html and the js file. Mary was also in charge of making sure all files were compatable with the NVDA screen reader. When loading up the application, we want to make sure the screen reader reads everything properly, the headers had to be numbered carefully to be read by the sscreen reader. The table code in html had to have good decription in HTML. such implementations and changes can be found in Mary's Branch. The tested combination of all code is found in Aaron's branch.
