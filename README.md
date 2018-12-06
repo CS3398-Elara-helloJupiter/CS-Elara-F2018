@@ -20,7 +20,7 @@ Aaron - dynamically incorporated add buttons for two of the levels, the subject 
 
 The team members jobs will be the following for the next steps
 
--	Mary – will incorporate all of the changes from each team mate and make sure the application still works correctly, by testing and change code accordingly. Mary incorporated the table in the third level and buttons in the table.
+-	Mary – will incorporate all of the changes from each team mate and make sure the application still works correctly, by testing and change code accordingly. 
 
 -	Sam- will implement CSS and JavaScript features in the code and add accessibility keyboard shortcuts for easy navigation for users. 
 -	Jessica – will implement the web scripting and complete the database connection. Assist in dynamic feeature development using javascript.  
